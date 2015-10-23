@@ -1,0 +1,41 @@
+
+<div class="container" style="margin-top: 40px;">
+    <h1>Person List</h1>
+
+    <h2>Number of Cars: {{cars.length}}</h2>
+    <input type="text" class="form-control" placeholder="search" ng-model="search">
+
+    <div class="row">
+        <table class="table">
+            <thead>
+                <tr>
+                    <td>ID</td>
+                    <td>Year</td>
+                    <td>Registered</td>
+                    <td>Make</td>
+                    <td>Model</td>
+                    <td>Description</td>
+                    <td>Price</td>
+                    <td>Action</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="car in cars | filter:{model:search}">
+                    <td>{{car.id}}</td>
+                    <td>{{car.year}}</td>
+                    <td>{{car.registered}}</td>
+                    <td>{{car.make}}</td>
+                    <td>{{car.model}}</td>
+                    <td>{{car.description}}</td>
+                    <td>{{car.price}}</td>
+                    
+                    <td>
+                        <button class="btn btn-primary" ui-sref="edit({id:car.id})">Edit</button>
+                        <button class="btn btn-danger" ng-click="deleteCar(car.id)">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
